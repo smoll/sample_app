@@ -16,6 +16,8 @@ group :development, :test do
   gem "web-console",        "2.0.0.beta3"
   gem "spring",             "1.1.3"
   gem "rubocop",            "~> 0.32.1"
+  gem "guard-livereload",   "~> 2.4", require: false
+  gem "rack-livereload",    "~> 0.3.16"
 end
 
 group :test do
