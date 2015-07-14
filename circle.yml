@@ -19,8 +19,9 @@ deployment:
     commands:
       - heroku maintenance:on --app aqueous-brook-3091
       # To ensure that no background jobs are processed during migration
-      - heroku scale worker=0 --app aqueous-brook-3091
-      - git push git@heroku.com:aqueous-brook-3091.git $CIRCLE_SHA1:refs/heads/master
+      # - heroku scale worker=0 --app aqueous-brook-3091
+      - git push -f git@heroku.com:aqueous-brook-3091.git $CIRCLE_SHA1:refs/heads/master
       - heroku run rake db:migrate --app aqueous-brook-3091
-      - heroku scale worker=1 --app aqueous-brook-3091
+      # This requires a paid heroku account :)
+      # - heroku scale worker=1 --app aqueous-brook-3091
       - heroku maintenance:off --app aqueous-brook-3091
